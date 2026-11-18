@@ -1,0 +1,176 @@
+.prize-popup[hidden],
+.prize-reveal[hidden],
+.prize-open-btn[hidden] { display: none !important; }
+
+.prize-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: #241632e8;
+  font-family: "Courier New", monospace;
+  image-rendering: pixelated;
+}
+
+.prize-card {
+  position: relative;
+  width: min(340px, 100%);
+  padding: 24px 22px 20px;
+  border: 4px solid #39224f;
+  border-radius: 0;
+  outline: 4px solid #fffaff;
+  background: #fffaff;
+  color: #39224f;
+  text-align: center;
+  box-shadow: 8px 8px 0 #7043a3, 16px 16px 0 #241632;
+  animation: prize-pop-in .28s steps(5, end) both;
+}
+
+@keyframes prize-pop-in {
+  from { opacity: 0; transform: translateY(16px) scale(.82); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.prize-eyebrow {
+  margin: 0 0 8px;
+  color: #805ca5;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.prize-card h2 {
+  margin: 0;
+  color: #7043a3;
+  font-size: clamp(17px, 5vw, 22px);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.prize-gift {
+  position: relative;
+  left: -16px;
+  width: 8px;
+  height: 8px;
+  margin: 30px auto 38px;
+  background: #ffda62;
+  box-shadow:
+    8px 0 #ffda62, 16px 0 #ffda62, 24px 0 #ffda62, 32px 0 #ffda62,
+    8px -8px #b987eb, 16px -8px #b987eb, 24px -8px #b987eb,
+    8px -16px #b987eb, 16px -16px #b987eb, 24px -16px #b987eb,
+    32px -8px #b987eb, 40px -8px #b987eb, -8px 0 #b987eb, -16px -8px #b987eb,
+    -8px 8px #d681d7, 0 8px #d681d7, 8px 8px #ffda62, 16px 8px #d681d7,
+    24px 8px #d681d7, 32px 8px #ffda62, 40px 8px #d681d7, 48px 8px #d681d7,
+    -8px 16px #d681d7, 0 16px #d681d7, 8px 16px #ffda62, 16px 16px #d681d7,
+    24px 16px #d681d7, 32px 16px #ffda62, 40px 16px #d681d7, 48px 16px #d681d7,
+    -8px 24px #d681d7, 0 24px #d681d7, 8px 24px #ffda62, 16px 24px #d681d7,
+    24px 24px #d681d7, 32px 24px #ffda62, 40px 24px #d681d7, 48px 24px #d681d7,
+    -8px 32px #d681d7, 0 32px #d681d7, 8px 32px #ffda62, 16px 32px #d681d7,
+    24px 32px #d681d7, 32px 32px #ffda62, 40px 32px #d681d7, 48px 32px #d681d7,
+    0 40px #d681d7, 8px 40px #d681d7, 16px 40px #d681d7, 24px 40px #d681d7,
+    32px 40px #d681d7, 40px 40px #d681d7;
+  image-rendering: pixelated;
+  animation: gift-bob .8s steps(2, end) infinite alternate;
+}
+
+@keyframes gift-bob { to { transform: translateY(-5px); } }
+
+.prize-open-btn,
+.prize-close-btn {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 3px solid #39224f;
+  border-radius: 0;
+  background: #7043a3;
+  color: white;
+  box-shadow: 4px 4px 0 #39224f;
+  font: 900 13px "Courier New", monospace;
+  text-transform: uppercase;
+  filter: none;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.prize-open-btn:active,
+.prize-close-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #39224f;
+}
+
+.prize-reveal { padding-top: 6px; animation: trophy-reveal .4s steps(5, end) both; }
+@keyframes trophy-reveal {
+  from { opacity: 0; transform: scale(.65) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.prize-trophy {
+  position: relative;
+  left: -24px;
+  width: 8px;
+  height: 8px;
+  margin: 16px auto 64px;
+  background: #ffda62;
+  box-shadow:
+    16px 0 #ffda62, 24px 0 #ffda62, 32px 0 #ffda62, 40px 0 #ffda62,
+    8px 8px #ffda62, 16px 8px #ffda62, 24px 8px #ffda62, 32px 8px #ffda62, 40px 8px #ffda62, 48px 8px #ffda62,
+    0 16px #d681d7, 8px 16px #ffda62, 16px 16px #ffda62, 24px 16px #ffda62, 32px 16px #ffda62, 40px 16px #ffda62, 48px 16px #ffda62, 56px 16px #d681d7,
+    -8px 8px #d681d7, -8px 16px #d681d7, 64px 8px #d681d7, 64px 16px #d681d7,
+    0 24px #d681d7, 8px 24px #ffda62, 16px 24px #ffda62, 24px 24px #ffda62, 32px 24px #ffda62, 40px 24px #ffda62, 48px 24px #ffda62, 56px 24px #d681d7,
+    16px 32px #ffda62, 24px 32px #ffda62, 32px 32px #ffda62, 40px 32px #ffda62,
+    24px 40px #ffda62, 32px 40px #ffda62,
+    16px 48px #d681d7, 24px 48px #d681d7, 32px 48px #d681d7, 40px 48px #d681d7,
+    8px 56px #d681d7, 16px 56px #d681d7, 24px 56px #d681d7, 32px 56px #d681d7, 40px 56px #d681d7, 48px 56px #d681d7;
+  image-rendering: pixelated;
+}
+
+.prize-message {
+  margin: 0 0 18px;
+  color: #7043a3;
+  font: 900 17px/1.25 "Courier New", monospace;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prize-card, .prize-gift, .prize-reveal {
+    animation-duration: .01ms;
+    animation-iteration-count: 1;
+  }
+}.prize-title { margin: 0; }
+.prize-reveal-art {
+  position: relative;
+  left: -24px;
+  width: 8px;
+  height: 8px;
+  margin: 16px auto 64px;
+  background: #ffda62;
+  image-rendering: pixelated;
+}
+.prize-reveal-art.is-trophy {
+  box-shadow:
+    16px 0 #ffda62, 24px 0 #ffda62, 32px 0 #ffda62, 40px 0 #ffda62,
+    8px 8px #ffda62, 16px 8px #ffda62, 24px 8px #ffda62, 32px 8px #ffda62, 40px 8px #ffda62, 48px 8px #ffda62,
+    0 16px #d681d7, 8px 16px #ffda62, 16px 16px #ffda62, 24px 16px #ffda62, 32px 16px #ffda62, 40px 16px #ffda62, 48px 16px #ffda62, 56px 16px #d681d7,
+    -8px 8px #d681d7, -8px 16px #d681d7, 64px 8px #d681d7, 64px 16px #d681d7,
+    0 24px #d681d7, 8px 24px #ffda62, 16px 24px #ffda62, 24px 24px #ffda62, 32px 24px #ffda62, 40px 24px #ffda62, 48px 24px #ffda62, 56px 24px #d681d7,
+    16px 32px #ffda62, 24px 32px #ffda62, 32px 32px #ffda62, 40px 32px #ffda62,
+    24px 40px #ffda62, 32px 40px #ffda62,
+    16px 48px #d681d7, 24px 48px #d681d7, 32px 48px #d681d7, 40px 48px #d681d7,
+    8px 56px #d681d7, 16px 56px #d681d7, 24px 56px #d681d7, 32px 56px #d681d7, 40px 56px #d681d7, 48px 56px #d681d7;
+}
+.prize-reveal-art.is-mystery {
+  left: -16px;
+  margin: 24px auto 48px;
+  background: #fff0a8;
+  box-shadow:
+    16px -8px #ffda62, 24px -8px #ffda62,
+    8px 0 #ffda62, 16px 0 #fff0a8, 24px 0 #fff0a8, 32px 0 #ffda62,
+    0 8px #ffda62, 8px 8px #fff0a8, 16px 8px #ffda62, 24px 8px #ffda62, 32px 8px #fff0a8, 40px 8px #ffda62,
+    8px 16px #ffda62, 16px 16px #fff0a8, 24px 16px #fff0a8, 32px 16px #ffda62,
+    16px 24px #ffda62, 24px 24px #ffda62,
+    16px 32px #d681d7, 24px 32px #d681d7,
+    8px 40px #d681d7, 16px 40px #d681d7, 24px 40px #d681d7, 32px 40px #d681d7;
+}

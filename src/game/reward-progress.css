@@ -1,0 +1,107 @@
+.reward-panel {
+  box-sizing: border-box;
+  flex: none;
+  width: 150px;
+  min-height: 340px;
+  padding: 14px 10px 12px;
+  border: 3px solid var(--black);
+  border-radius: 10px;
+  background: #fffaff;
+  color: #39224f;
+  box-shadow: 0 6px 0 var(--dark-blue);
+  font-family: system-ui, sans-serif;
+}
+.reward-panel-header {
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #d6b8f2;
+}
+.reward-panel-header .hud-label { margin: 0 0 4px; font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+.reward-panel-header h2 { margin: 0; color: var(--dark-blue); font-size: 16px; letter-spacing: .06em; }
+.reward-current { margin: 10px 0 4px; color: #805ca5; font-size: 9px; font-weight: 900; }
+.reward-progress {
+  --reward-progress: 0%;
+  position: relative;
+  height: 224px;
+  margin: 8px 0 10px;
+}
+.reward-progress-rail {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 5px;
+  width: 10px;
+  overflow: hidden;
+  border: 2px solid #39224f;
+  border-radius: 8px;
+  background: #f1e8ff;
+  box-shadow: 0 3px 0 #d6b8f2;
+}
+.reward-progress-fill {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--reward-progress);
+  background: linear-gradient(to top, #7043a3, #b987eb);
+  transition: height .35s steps(8, end);
+}
+.reward-marker, .reward-start {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.reward-tier-two { top: 8px; }
+.reward-tier-one { top: 59.3%; }
+.reward-start { bottom: -4px; transform: none; }
+.reward-marker-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex: none;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 2px solid #39224f;
+  border-radius: 50%;
+  background: #fffaff;
+  color: #7043a3;
+  font-size: 10px;
+  font-weight: 900;
+  box-shadow: 0 2px 0 #39224f;
+}
+.reward-marker.is-unlocked .reward-marker-node { background: #ffda62; color: #39224f; }
+.reward-marker-copy { display: grid; gap: 2px; min-width: 0; }
+.reward-marker-copy strong { color: #7043a3; font-size: 9px; }
+.reward-marker-copy small, .reward-start small { color: #805ca5; font-size: 8px; }
+.reward-start .reward-marker-node { width: 24px; height: 24px; font-size: 10px; }
+.reward-next {
+  min-height: 24px;
+  margin: 0;
+  padding: 7px 5px 0;
+  border-top: 2px dashed #d6b8f2;
+  color: #7043a3;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1.4;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .reward-panel { width: clamp(108px, 17vw, 136px); padding: 11px 7px; }
+  .reward-marker { gap: 4px; }
+  .reward-marker-node { width: 24px; height: 24px; }
+  .reward-marker-copy strong { font-size: 8px; }
+  .reward-marker-copy small { font-size: 7px; }
+}
+@media (max-width: 580px) {
+  .reward-panel { width: min(324px, 100%); min-height: 0; padding: 13px; }
+  .reward-panel-header { display: flex; align-items: baseline; justify-content: space-between; }
+  .reward-current { margin-bottom: 0; }
+  .reward-progress { height: 190px; }
+}
+@media (max-width: 360px) { .reward-panel { width: 100%; } }
